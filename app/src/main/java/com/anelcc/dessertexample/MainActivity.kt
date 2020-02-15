@@ -135,4 +135,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // TODO (02) Override the onStart lifecycle method and add an info level log statement
+    override fun onStart() {
+        super.onStart()
+    }
 }
