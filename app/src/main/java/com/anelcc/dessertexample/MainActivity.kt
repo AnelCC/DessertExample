@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private var dessertsSold = 0
     private var TAG = "MainActivity"
     private lateinit var dessertTimer: DessertTimer
+    private var KEY_REVENUE = "key_revenue"
 
     // Contains all the views
     private lateinit var binding: ActivityMainBinding
@@ -172,6 +173,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
+        outState.putInt(KEY_REVENUE, revenue)
         Timber.i("onSaveInstanceState Called")
     }
 
