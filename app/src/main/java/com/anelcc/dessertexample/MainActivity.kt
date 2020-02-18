@@ -64,6 +64,10 @@ class MainActivity : AppCompatActivity() {
 
         dessertTimer = DessertTimer(this.lifecycle)
 
+        if (savedInstanceState != null) {
+            revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
+        }
+
         // Set the TextViews to the right values
         binding.revenue = revenue
         binding.amountSold = dessertsSold
