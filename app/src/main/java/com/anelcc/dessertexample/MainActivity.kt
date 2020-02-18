@@ -13,13 +13,15 @@ import androidx.databinding.DataBindingUtil
 import com.anelcc.dessertexample.databinding.ActivityMainBinding
 import timber.log.Timber
 
+private var KEY_REVENUE = "key_revenue"
+private var KEY_DESERT_SOLD = "key_desserts_sold"
+private var KEY_DESERT_TIMER = "key_dessert_timer"
+
 class MainActivity : AppCompatActivity() {
 
     private var revenue = 0
     private var dessertsSold = 0
-    private var TAG = "MainActivity"
     private lateinit var dessertTimer: DessertTimer
-    private var KEY_REVENUE = "key_revenue"
 
     // Contains all the views
     private lateinit var binding: ActivityMainBinding
@@ -66,6 +68,8 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState != null) {
             revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
+            dessertsSold = savedInstanceState.getInt(KEY_DESERT_SOLD, 0)
+            dessertTimer.secondsCount = savedInstanceState.getInt(KEY_DESERT_TIMER, 0)
         }
 
         // Set the TextViews to the right values
@@ -178,7 +182,11 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
         outState.putInt(KEY_REVENUE, revenue)
+        outState.putInt(KEY_DESERT_SOLD, dessertsSold)
+        outState.putInt(KEY_DESERT_TIMER, dessertTimer.secondsCount)
         Timber.i("onSaveInstanceState Called")
+        //extra
+
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
