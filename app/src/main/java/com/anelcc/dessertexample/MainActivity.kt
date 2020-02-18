@@ -141,6 +141,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        dessertTimer.startTimer()
         Timber.i("onStart Called")
     }
 
@@ -151,6 +152,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+        dessertTimer.stopTimer()
         Timber.i("onPause Called")
     }
 
