@@ -1,6 +1,12 @@
 # DessertExample
 
 
+
+Course Udacity 
+Developing Android Apps with Kotlin
+Lesson 4: Activity & Fragment Lifecycle
+https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012
+
 General Definitions
 Visible Lifecycle: The part of the Lifecycle between onStart and onStop when the Activity is visible.
 Focus: An Activity is said to have focus when it's the activity the user can interact with.
@@ -54,4 +60,5 @@ onDestroyView: Unlike activities, fragment views are destroyed every time they
 * Do not refer to views in this callback, since they are destroyed
 onDestroy: Called when the Activity’s onDestroy is called.
 onDetach: Called when the association between the fragment and the activity is destroyed.
-Lifecycle Cheat sheets
+
+![](https://github.com/AnelCC/DessertExample/blob/master/screenshot.png)
