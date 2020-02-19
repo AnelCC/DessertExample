@@ -3,6 +3,7 @@ package com.anelcc.dessertexample
 import android.content.ActivityNotFoundException
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -12,11 +13,14 @@ import androidx.databinding.DataBindingUtil
 import com.anelcc.dessertexample.databinding.ActivityMainBinding
 import timber.log.Timber
 
+private var KEY_REVENUE = "key_revenue"
+private var KEY_DESERT_SOLD = "key_desserts_sold"
+private var KEY_DESERT_TIMER = "key_dessert_timer"
+
 class MainActivity : AppCompatActivity() {
 
     private var revenue = 0
     private var dessertsSold = 0
-    private var TAG = "MainActivity"
     private lateinit var dessertTimer: DessertTimer
 
     // Contains all the views
@@ -61,6 +65,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         dessertTimer = DessertTimer(this.lifecycle)
+
+        if (savedInstanceState != null) {
+            revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
+            dessertsSold = savedInstanceState.getInt(KEY_DESERT_SOLD, 0)
+            dessertTimer.secondsCount = savedInstanceState.getInt(KEY_DESERT_TIMER, 0)
+        }
 
         // Set the TextViews to the right values
         binding.revenue = revenue
@@ -167,5 +177,20 @@ class MainActivity : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
         Timber.i("onRestart Called")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+        outState.putInt(KEY_REVENUE, revenue)
+        outState.putInt(KEY_DESERT_SOLD, dessertsSold)
+        outState.putInt(KEY_DESERT_TIMER, dessertTimer.secondsCount)
+        Timber.i("onSaveInstanceState Called")
+        //extra
+
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Timber.i("onRestoreInstanceState Called")
     }
 }
