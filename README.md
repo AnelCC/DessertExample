@@ -1,25 +1,21 @@
-# Course Udacity  DessertExample
+# DessertExample
 
 
-
-Course Udacity 
-Developing Android Apps with Kotlin
-Lesson 4: Activity & Fragment Lifecycle
-https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012
-
-General Definitions
+## General Definitions
 Visible Lifecycle: The part of the Lifecycle between onStart and onStop when the Activity is visible.
 Focus: An Activity is said to have focus when it's the activity the user can interact with.
 Foreground: When the activity is on screen.
 Background: When the activity is fully off screen, it is considered in the background.
-Lifecycle States
+
+## Lifecycle States
 These are the same for both the Fragment Lifecycle and the Activity Lifecycle.
 Initialized: This is the starting state whenever you make a new activity. This is a transient state -- it immediately goes to Created.
 Created: Activity has just been created, but it’s not visible and it doesn’t have focus (you’re not able to interact with it).
 Started: Activity is visible but doesn’t have focus.
 Resumed: The state of the activity when it is running. It’s visible and has focus.
 Destroyed: Activity is destroyed. It can be ejected from memory at any point and should not be referenced or interacted with.
-Activity Lifecycle Callbacks
+
+## Activity Lifecycle Callbacks
 onCreate: This is called the first time the activity starts and is therefore only called once during the lifecycle of the activity. It represents when the activity is created and initialized. The activity is not yet visible and you can't interact with it. You must implement onCreate. In onCreate you should:
 * Inflate the activity's UI, whether that's using findViewById or databinding.
 * Initialize variables.
