@@ -57,4 +57,4 @@ onDestroyView: Unlike activities, fragment views are destroyed every time they
 onDestroy: Called when the Activity’s onDestroy is called.
 onDetach: Called when the association between the fragment and the activity is destroyed.
 
-![](https://github.com/AnelCC/DessertExample/blob/master/screenshot.png)
+<img src="https://github.com/AnelCC/DessertExample/blob/master/screenshot.png" width="300" height="500" title="DessertExample">
